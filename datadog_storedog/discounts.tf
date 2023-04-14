@@ -8,8 +8,7 @@ resource "kubernetes_manifest" "deployment_discounts" {
         "service"                = "discounts"
         "tags.datadoghq.com/env" = "development"
       }
-      "name"      = "discounts"
-      "namespace" = "default"
+      "name" = "discounts"
     }
     "spec" = {
       "replicas" = 1
@@ -125,8 +124,7 @@ resource "kubernetes_manifest" "service_discounts" {
         "app"     = "ecommerce"
         "service" = "discounts"
       }
-      "name"      = "discounts"
-      "namespace" = "default"
+      "name" = "discounts"
     }
     "spec" = {
       "ports" = [

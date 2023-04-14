@@ -8,8 +8,7 @@ resource "kubernetes_manifest" "deployment_advertisements" {
         "service"                = "advertisements"
         "tags.datadoghq.com/env" = "development"
       }
-      "name"      = "advertisements"
-      "namespace" = "default"
+      "name" = "advertisements"
     }
     "spec" = {
       "replicas" = 1
@@ -125,8 +124,7 @@ resource "kubernetes_manifest" "service_advertisements" {
         "app"     = "ecommerce"
         "service" = "advertisements"
       }
-      "name"      = "advertisements"
-      "namespace" = "default"
+      "name" = "advertisements"
     }
     "spec" = {
       "ports" = [
@@ -141,5 +139,6 @@ resource "kubernetes_manifest" "service_advertisements" {
         "service" = "advertisements"
       }
     }
+    "status" = null
   }
 }

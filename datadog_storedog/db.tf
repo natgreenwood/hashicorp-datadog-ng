@@ -3,8 +3,7 @@ resource "kubernetes_manifest" "serviceaccount_postgres" {
     "apiVersion" = "v1"
     "kind"       = "ServiceAccount"
     "metadata" = {
-      "name"      = "postgres"
-      "namespace" = "default"
+      "name" = "postgres"
     }
   }
 }
@@ -21,8 +20,7 @@ resource "kubernetes_manifest" "secret_db_password" {
         "app"     = "ecommerce"
         "service" = "db"
       }
-      "name"      = "db-password"
-      "namespace" = "default"
+      "name" = "db-password"
     }
     "type" = "Opaque"
   }
@@ -59,8 +57,7 @@ resource "kubernetes_manifest" "persistentvolumeclaim_task_pvc_volume" {
     "apiVersion" = "v1"
     "kind"       = "PersistentVolumeClaim"
     "metadata" = {
-      "name"      = "task-pvc-volume"
-      "namespace" = "default"
+      "name" = "task-pvc-volume"
     }
     "spec" = {
       "accessModes" = [
@@ -85,8 +82,7 @@ resource "kubernetes_manifest" "deployment_db" {
         "app"     = "ecommerce"
         "service" = "db"
       }
-      "name"      = "db"
-      "namespace" = "default"
+      "name" = "db"
     }
     "spec" = {
       "replicas" = 1
@@ -170,8 +166,7 @@ resource "kubernetes_manifest" "service_db" {
         "app"     = "ecommerce"
         "service" = "db"
       }
-      "name"      = "db"
-      "namespace" = "default"
+      "name" = "db"
     }
     "spec" = {
       "ports" = [
@@ -185,6 +180,9 @@ resource "kubernetes_manifest" "service_db" {
         "app"     = "ecommerce"
         "service" = "db"
       }
+    }
+    "status" = {
+      "loadBalancer" = {}
     }
   }
 }
