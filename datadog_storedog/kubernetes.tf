@@ -4,7 +4,7 @@ data "terraform_remote_state" "eks" {
   config = {
     organization = var.org_name
     workspaces = {
-      name = "eks-cluster"
+      name = "aws_eks"
     }
   }
 }
