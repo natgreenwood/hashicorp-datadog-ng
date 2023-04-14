@@ -21,7 +21,6 @@ resource "kubernetes_manifest" "deployment_advertisements" {
       "strategy" = {}
       "template" = {
         "metadata" = {
-          "creationTimestamp" = null
           "labels" = {
             "app"                    = "ecommerce"
             "service"                = "advertisements"

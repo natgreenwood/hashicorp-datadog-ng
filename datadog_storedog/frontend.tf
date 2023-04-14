@@ -105,31 +105,27 @@ resource "kubernetes_manifest" "deployment_frontend" {
   }
 }
 
-resource "kubernetes_manifest" "service_frontend" {
-  manifest = {
-    "apiVersion" = "v1"
-    "kind"       = "Service"
-    "metadata" = {
-      "labels" = {
-        "app"     = "ecommerce"
-        "service" = "frontend"
-      }
-      "name" = "frontend"
-    }
-    "spec" = {
-      "ports" = [
-        {
-          "name"       = "http"
-          "port"       = 80
-          "protocol"   = "TCP"
-          "targetPort" = 3000
-        },
-      ]
-      "selector" = {
-        "app"     = "ecommerce"
-        "service" = "frontend"
-      }
-      "type" = "LoadBalancer"
+resource "kubernetes_service" "frontend" {
+  metadata {
+    name      = "frontend"
+    labels = {
+      app     = "ecommerce"
+      service = "frontend"
     }
   }
+  spec {
+    selector = {
+      app = "ecommerce"
+      service = "frontend"
+    }
+    port {
+      port        = 80
+      target_port = 3000
+    }
+    type = "LoadBalancer"
+  }
+}
+
+output "frontend" {
+  value = "http://${kubernetes_service.frontend.status.0.load_balancer.0.ingress.0.hostname}"
 }

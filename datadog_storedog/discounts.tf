@@ -21,7 +21,6 @@ resource "kubernetes_manifest" "deployment_discounts" {
       "strategy" = {}
       "template" = {
         "metadata" = {
-          "creationTimestamp" = null
           "labels" = {
             "app"                    = "ecommerce"
             "service"                = "discounts"

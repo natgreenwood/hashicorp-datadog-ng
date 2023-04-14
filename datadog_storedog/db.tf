@@ -161,7 +161,6 @@ resource "kubernetes_manifest" "service_db" {
     "apiVersion" = "v1"
     "kind"       = "Service"
     "metadata" = {
-      "creationTimestamp" = null
       "labels" = {
         "app"     = "ecommerce"
         "service" = "db"
