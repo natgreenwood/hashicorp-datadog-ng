@@ -92,7 +92,7 @@ resource "kubernetes_deployment" "frontend" {
             value = true
           }
 
-/*           env {
+          env {
             name  = "DISCOUNTS_ROUTE"
             value = "http://discounts"
           }
@@ -110,7 +110,7 @@ resource "kubernetes_deployment" "frontend" {
           env {
             name  = "ADS_PORT"
             value = "5002"
-          } */
+          }
 
           env {
             name  = "DD_CLIENT_TOKEN"
