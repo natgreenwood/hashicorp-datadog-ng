@@ -9,6 +9,7 @@ resource "kubernetes_manifest" "deployment_discounts" {
         "tags.datadoghq.com/env" = "development"
       }
       "name" = "discounts"
+      "namespace" = "storedog"
     }
     "spec" = {
       "replicas" = 1
@@ -124,6 +125,7 @@ resource "kubernetes_manifest" "service_discounts" {
         "service" = "discounts"
       }
       "name" = "discounts"
+      "namespace" = "storedog"
     }
     "spec" = {
       "ports" = [

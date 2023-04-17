@@ -9,6 +9,7 @@ resource "kubernetes_manifest" "deployment_advertisements" {
         "tags.datadoghq.com/env" = "development"
       }
       "name" = "advertisements"
+      "namespace" = "storedog"
     }
     "spec" = {
       "replicas" = 1
@@ -124,6 +125,8 @@ resource "kubernetes_manifest" "service_advertisements" {
         "service" = "advertisements"
       }
       "name" = "advertisements"
+      "namespace" = "storedog"
+
     }
     "spec" = {
       "ports" = [

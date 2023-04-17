@@ -9,6 +9,7 @@ resource "kubernetes_manifest" "deployment_frontend" {
         "tags.datadoghq.com/env" = "development"
       }
       "name" = "frontend"
+      "namespace" = "storedog"
     }
     "spec" = {
       "replicas" = 1
@@ -108,6 +109,7 @@ resource "kubernetes_manifest" "deployment_frontend" {
 resource "kubernetes_service" "frontend" {
   metadata {
     name      = "frontend"
+    namespace = "storedog"
     labels = {
       app     = "ecommerce"
       service = "frontend"

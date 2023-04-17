@@ -32,3 +32,9 @@ provider "kubernetes" {
     ]
   }
 }
+
+resource "kubernetes_namespace" "storedog" {
+  metadata {
+    name = var.application_name
+  }
+}

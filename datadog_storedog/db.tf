@@ -4,6 +4,7 @@ resource "kubernetes_manifest" "serviceaccount_postgres" {
     "kind"       = "ServiceAccount"
     "metadata" = {
       "name" = "postgres"
+      "namespace" = "storedog"
     }
   }
 }
@@ -21,6 +22,8 @@ resource "kubernetes_manifest" "secret_db_password" {
         "service" = "db"
       }
       "name" = "db-password"
+      "namespace" = "storedog"
+      
     }
     "type" = "Opaque"
   }
@@ -35,6 +38,7 @@ resource "kubernetes_manifest" "persistentvolume_task_pv_volume" {
         "type" = "local"
       }
       "name" = "task-pv-volume"
+      "namespace" = "storedog"
     }
     "spec" = {
       "accessModes" = [
@@ -58,6 +62,7 @@ resource "kubernetes_manifest" "persistentvolumeclaim_task_pvc_volume" {
     "kind"       = "PersistentVolumeClaim"
     "metadata" = {
       "name" = "task-pvc-volume"
+      "namespace" = "storedog"
     }
     "spec" = {
       "accessModes" = [
@@ -83,6 +88,7 @@ resource "kubernetes_manifest" "deployment_db" {
         "service" = "db"
       }
       "name" = "db"
+      "namespace" = "storedog"
     }
     "spec" = {
       "replicas" = 1
@@ -166,6 +172,7 @@ resource "kubernetes_manifest" "service_db" {
         "service" = "db"
       }
       "name" = "db"
+      "namespace" = "storedog"
     }
     "spec" = {
       "ports" = [
