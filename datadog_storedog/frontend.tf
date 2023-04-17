@@ -6,7 +6,7 @@ resource "kubernetes_deployment" "deploy_frontend" {
       "tags.datadoghq.com/env" = "development"
     }
     name      = "frontend"
-    namespace = "default"
+    namespace = "storedog"
   }
   spec {
     replicas = 1
