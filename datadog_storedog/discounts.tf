@@ -36,7 +36,7 @@ spec {
 
       spec {
         container {
-          args    = ["flask run --port=5001 --host=0.0.0.0"]
+          args    = ["flask", "run", "--port=5001", "--host=0.0.0.0"]
           command = ["ddtrace-run"]
           env {
             name  = "FLASK_APP"
