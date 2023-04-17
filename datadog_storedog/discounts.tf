@@ -135,7 +135,7 @@ resource "kubernetes_service" "discounts" {
       port        = 5001
       target_port = 5001
     }
-      sessionAffinity = "None"
+      session_affinity = "None"
       type = "ClusterIP"
   }
 }
