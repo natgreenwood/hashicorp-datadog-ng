@@ -11,7 +11,7 @@ metadata {
     name      = "discounts"
     namespace = kubernetes_namespace.storedog.id
     annotations = {
-      "ad.datadoghq.com/discounts.logs": [{"source": "python", "service": "discounts-service"}]
+      "ad.datadoghq.com/discounts.logs" = " [{'source': 'python', 'service': 'discounts-service'}]"
     }
   }
 spec {
