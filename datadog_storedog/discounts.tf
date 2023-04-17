@@ -70,8 +70,12 @@ spec {
           }
           
           env {
-            name  = "DATADOG_SERVICE_NAME"
-            value = "discounts-service"
+            name = "DD_SERVICE"
+            value_from {
+              field_ref {
+                field_path = "metadata.labels['tags.datadoghq.com/service']"
+              }
+            }
           }
           
           env {
