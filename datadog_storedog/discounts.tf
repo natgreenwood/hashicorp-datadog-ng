@@ -111,7 +111,7 @@ spec {
             value = true
           }
 
-          image             = "ddtraining/discounts:latest"
+          image             = "public.ecr.aws/x2b9z2t7/ddtraining/discounts:latest"
           image_pull_policy = "Always"
           name              = "discounts"
           port {

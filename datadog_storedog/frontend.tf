@@ -93,6 +93,26 @@ resource "kubernetes_deployment" "frontend" {
           }
 
           env {
+            name  = "DISCOUNTS_ROUTE"
+            value = "http://discounts"
+          }
+
+          env {
+            name  = "DISCOUNTS_PORT"
+            value = "5001"
+          }
+
+          env {
+            name  = "ADS_ROUTE"
+            value = "http://advertisements"
+          }
+
+          env {
+            name  = "ADS_PORT"
+            value = "5002"
+          }
+
+          env {
             name  = "DD_CLIENT_TOKEN"
             value = var.DD_CLIENT_TOKEN
           }
@@ -103,7 +123,7 @@ resource "kubernetes_deployment" "frontend" {
           }
 
 
-          image             = "ddtraining/storefront:latest"
+          image             = "public.ecr.aws/x2b9z2t7/ddtraining/storefront:latest"
           image_pull_policy = "Always"
           name              = "ecommerce-spree-observability"
           port {
