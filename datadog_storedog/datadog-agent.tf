@@ -15,6 +15,7 @@ resource "helm_release" "datadog_agent" {
   chart      = "datadog"
   repository = "https://helm.datadoghq.com"
   version    = "3.3.1"
+  namespace  = kubernetes_namespace.storedog.id
 
   set_sensitive {
     name  = "datadog.apiKey"
