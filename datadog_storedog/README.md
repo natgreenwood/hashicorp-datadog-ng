@@ -84,7 +84,7 @@ Finally, the helm chart values have been extended with the following values
 
 ---
 
-Use the output variables to show and connect with the applications deployed!
+Use the output variables to show and connect with the applications deployed.
 
 ![1669636063030](image/README/1669636063030.png)
 
