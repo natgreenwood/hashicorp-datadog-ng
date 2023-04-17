@@ -1,4 +1,7 @@
-resource "kubernetes_deployment" "deploy_frontend" {
+resource "kubernetes_deployment" "frontend" {
+  depends_on = [
+    kubernetes_namespace.storedog
+  ]
   metadata {
     labels = {
       "app"                    = "ecommerce"
@@ -6,7 +9,7 @@ resource "kubernetes_deployment" "deploy_frontend" {
       "tags.datadoghq.com/env" = "development"
     }
     name      = "frontend"
-    namespace = "storedog"
+    namespace = kubernetes_namespace.storedog.id
   }
   spec {
     replicas = 1
@@ -114,9 +117,12 @@ resource "kubernetes_deployment" "deploy_frontend" {
 }
 
 resource "kubernetes_service" "frontend" {
+  depends_on = [
+    kubernetes_namespace.storedog
+  ]
   metadata {
     name      = "frontend"
-    namespace = "storedog"
+    namespace = kubernetes_namespace.storedog.id
     labels = {
       app     = "ecommerce"
       service = "frontend"

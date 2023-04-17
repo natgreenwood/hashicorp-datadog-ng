@@ -1,4 +1,7 @@
 resource "kubernetes_deployment" "discounts" {
+  depends_on = [
+    kubernetes_namespace.storedog
+  ]
 metadata {
     labels = {
       "app"                    = "ecommerce"
@@ -6,7 +9,7 @@ metadata {
       "tags.datadoghq.com/env" = "development"
     }
     name      = "discounts"
-    namespace = "storedog"
+    namespace = kubernetes_namespace.storedog.id
   }
 spec {
   replicas = 1
@@ -118,9 +121,12 @@ spec {
 }
 
 resource "kubernetes_service" "discounts" {
+  depends_on = [
+    kubernetes_namespace.storedog
+  ]
   metadata {
     name      = "discounts"
-    namespace = "storedog"
+    namespace = kubernetes_namespace.storedog.id
     labels = {
       app     = "ecommerce"
       service = "discounts"
