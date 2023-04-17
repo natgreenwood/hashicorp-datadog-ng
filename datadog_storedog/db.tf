@@ -38,7 +38,6 @@ resource "kubernetes_manifest" "persistentvolume_task_pv_volume" {
         "type" = "local"
       }
       "name" = "task-pv-volume"
-      "namespace" = "storedog"
     }
     "spec" = {
       "accessModes" = [
