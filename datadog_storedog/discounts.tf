@@ -10,6 +10,9 @@ metadata {
     }
     name      = "discounts"
     namespace = kubernetes_namespace.storedog.id
+    annotations = {
+      "ad.datadoghq.com/discounts.logs": [{"source": "python", "service": "discounts-service"}]
+    }
   }
 spec {
   replicas = 1
@@ -71,7 +74,7 @@ spec {
           
           env {
             name  = "DATADOG_SERVICE_NAME"
-            value = "discountsservice"
+            value = "discounts-service"
           }
           
           env {
