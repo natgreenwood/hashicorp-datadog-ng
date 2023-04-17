@@ -1,30 +1,8 @@
-resource "datadog_synthetics_test" "beacon" {
-  type    = "api"
-  subtype = "http"
+##-----------------------------------------##
+##    Create Datadog Synthetics API  test    ##
+## ----------------------------------------##
 
-  request_definition {
-    method = "GET"
-    url    = data.terraform_remote_state.k8s.outputs.web_endpoint
-  }
-
-  assertion {
-    type     = "statusCode"
-    operator = "is"
-    target   = "200"
-  }
-
-  locations = ["aws:${var.aws_region}"]
-  options_list {
-    tick_every          = 900
-    min_location_failed = 1
-  }
-
-  name    = "beacon API Check"
-  message = "Oh no! Light from the beacon app is no longer shining!"
-  tags    = ["app:beacon", "env:demo"]
-
-  status = "live"
-}
+# Create a new Datadog Synthetics API test on storedog!
 
 resource "datadog_synthetics_test" "eCommerce" {
   type    = "api"
@@ -53,6 +31,12 @@ resource "datadog_synthetics_test" "eCommerce" {
 
   status = "live"
 }
+
+##---------------------------------------------##
+##    Create Datadog Synthetics Browser test    ##
+## --------------------------------------------##
+
+# Create a new Datadog Synthetics BrowserI test on storedog!
 
 resource "datadog_synthetics_test" "eCommerce_browser" {
   type    = "browser"
