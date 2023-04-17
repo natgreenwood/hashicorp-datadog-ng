@@ -9,7 +9,7 @@ resource "kubernetes_deployment" "deploy_frontend" {
     namespace = "default"
   }
   spec {
-    replicas = 4
+    replicas = 1
 
     selector {
       match_labels = {
