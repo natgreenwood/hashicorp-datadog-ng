@@ -12,6 +12,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.40.0"
     }
+  datadog = {
+      source  = "datadog/datadog"
+      version = "~> 3.18.0"
+    }
   }
   required_version = "~> 1.3.4"
 }
