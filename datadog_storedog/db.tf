@@ -180,8 +180,8 @@ resource "kubernetes_manifest" "service_db" {
         "service" = "db"
       }
     }
-    "status" = {
+/*     "status" = {
       "loadBalancer" = {}
-    }
+    } */
   }
 }
