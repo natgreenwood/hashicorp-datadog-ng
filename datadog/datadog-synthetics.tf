@@ -27,7 +27,7 @@ resource "datadog_synthetics_test" "eCommerce" {
 
   name    = "Checking eCommerce app via API"
   message = "eCommerce Application is not responding to GET requests"
-  tags    = ["app:ecommerce", "tags.datadoghq.com/env:development"]
+  tags    = ["app:ecommerce", "env:development", "service:store-frontend"]
 
   status = "live"
 }
@@ -63,7 +63,7 @@ resource "datadog_synthetics_test" "eCommerce_browser" {
 
   name    = "Checking eCommerce app via browser"
   message = "eCommerce Application is not responding"
-  tags    = ["app:ecommerce", "tags.datadoghq.com/env:development"]
+  tags    = ["app:ecommerce", "env:development", "service:store-frontend"]
 
   status = "live"
 }
