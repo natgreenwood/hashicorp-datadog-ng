@@ -32,3 +32,8 @@ variable "DD_CLIENT_ID" {
   type = string
 }
 */
+
+variable "datadog_api_url" {
+  type = string
+  description = "Datadog URL if not US"
+}

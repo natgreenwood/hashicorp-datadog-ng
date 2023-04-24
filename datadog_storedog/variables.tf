@@ -29,3 +29,7 @@ variable "DD_APPLICATION_ID" {
   type = string
 }
 
+variable "datadog_api_url" {
+  type = string
+  description = "Datadog URL if not US"
+}
